@@ -6,10 +6,8 @@ public class Calculator {
 	// test GitHub
 	
 	
-	String  = "testing git";
+	String test = "change";
 	
-	test = "change";
-	
-	System.out.println(test);
+
 	
 }

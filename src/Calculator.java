@@ -98,7 +98,7 @@ public class Calculator implements ActionListener  {
 		panel.add(numberButtons[0]);
 		panel.add(equButton);
 		panel.add(divButton);
-		//
+		
 		
 		//adding to frame
 		frame.add(panel);
@@ -117,7 +117,13 @@ public class Calculator implements ActionListener  {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		// add functionality to buttons
+		for(int i = 0; i< 10; i++) {
+			if(e.getSource() == numberButtons[i]) { // identify which number button was pressed
+				textfield.setText(textfield.getText().concat(String.valueOf(i))); // writes text(number/ variable i) to the text field and concats(adds)each number
+			}
+		}
+		
 		
 	}
 }

@@ -73,12 +73,17 @@ public class Calculator implements ActionListener  {
 		}
 		
 		// set bounds of del and clr buttons - x, y, width, height 
-		
 		delButton.setBounds(50, 430, 145, 50);
 		clrButton.setBounds(205, 430, 145, 50);
 		
+		//panel
+		panel = new JPanel();
+		panel.setBounds(50, 100, 300, 300);
+		panel.setLayout(new GridLayout(4,4,10,10)); // rows, columns, hgap, vgap - making a grid layout
+		panel.setBackground(Color.GRAY);
 		
-		
+		//adding to frame
+		frame.add(panel);
 		frame.add(delButton);
 		frame.add(clrButton);
 		frame.add(textfield); // add textfield to JFrame

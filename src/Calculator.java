@@ -57,13 +57,30 @@ public class Calculator implements ActionListener  {
 		functionButtons[7] = clrButton;
 		
 		
-		//loop through buttons to do a few things
+		//loop through buttons to do a few things with function buttons
 		for(int i=0; i<8; i++) {
 			functionButtons[i].addActionListener(this);
 			functionButtons[i].setFont(myFont);
 			functionButtons[i].setFocusable(false); // gets rid of outline around the buttons - esthetic
 		}
 		
+		// number buttons
+		for(int i=0; i<10; i++) {
+			numberButtons[i] = new JButton(String.valueOf(i)); // converts int value to string 
+			numberButtons[i].addActionListener(this);
+			numberButtons[i].setFont(myFont);
+			numberButtons[i].setFocusable(false); // gets rid of outline around the buttons - esthetic
+		}
+		
+		// set bounds of del and clr buttons - x, y, width, height 
+		
+		delButton.setBounds(50, 430, 145, 50);
+		clrButton.setBounds(205, 430, 145, 50);
+		
+		
+		
+		frame.add(delButton);
+		frame.add(clrButton);
 		frame.add(textfield); // add textfield to JFrame
 		frame.setVisible(true);
 	}

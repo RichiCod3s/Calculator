@@ -124,6 +124,81 @@ public class Calculator implements ActionListener  {
 			}
 		}
 		
+		// decimal
+		if(e.getSource()== decButton) {
+			textfield.setText(textfield.getText().concat(".")); 
+		}
+		
+		// operators
+		// assign string (parse it) to num1 after operator is pressed
+		if(e.getSource()== addButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = '+';
+			textfield.setText("");
+		}
+		
+		if(e.getSource()== subButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = '-';
+			textfield.setText("");
+		}
+		
+		if(e.getSource()== mulButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = '*';
+			textfield.setText("");
+		}
+		
+		if(e.getSource()== divButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator = '/';
+			textfield.setText("");
+		}
+		
+		// assign string to num 2 after = button pressed
+		// Perform calculation 
+		if(e.getSource()== equButton) {
+			num2 = Double.parseDouble(textfield.getText());
+			
+			// calculation
+			switch(operator) {
+			case '+':
+				result = num1 + num2;
+				break;
+				
+			case '-':
+				result = num1 - num2;
+				break;
+			
+			case '*':
+				result = num1 * num2;
+				break;
+				
+			case '/':
+				result = num1 / num2;
+				break;
+			}
+			textfield.setText(String.valueOf(result));
+			num1=result;
+		}
+		
+		// clear and delete buttons
+		
+		if(e.getSource()== clrButton) {
+			textfield.setText(""); // clears the text
+		}
+		
+		
+		if(e.getSource() == delButton) {
+		    String string = textfield.getText(); // Get the current content of the text field
+		    textfield.setText(""); // Clear the text field
+
+		    // Iterate through the characters in the string, except the last one
+		    for (int i = 0; i < string.length() - 1; i++) {
+		        // Append each character to the text field, effectively omitting the last character
+		        textfield.setText(textfield.getText() + string.charAt(i));
+		    }
+		}
 		
 	}
 }

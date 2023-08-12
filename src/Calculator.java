@@ -5,8 +5,8 @@ import java.awt.event.*;
 
 public class Calculator implements ActionListener  {
 
-	JFrame frame;
-	JTextField textfield;
+	JFrame frame; // frame
+	JTextField textfield; // textfield for top of calculator
 	
 	//array of number buttons
 	JButton[] numberButtons = new JButton[10];
@@ -17,7 +17,7 @@ public class Calculator implements ActionListener  {
 	JButton decButton, equButton, delButton, clrButton, negButton;
 	JPanel panel;
 	
-	Font myFont = new Font("Ink Free", Font.BOLD, 30);
+	Font myFont = new Font("Ink Free", Font.BOLD, 28);
 	
 	double num1=0,num2=0,result=0;
 	char operator;
@@ -75,8 +75,8 @@ public class Calculator implements ActionListener  {
 		}
 		
 		// set bounds of del and clr buttons - x, y, width, height 
-		delButton.setBounds(130, 430, 125, 50);
-		clrButton.setBounds(250, 430, 104, 50);
+		delButton.setBounds(130, 430, 115, 50);
+		clrButton.setBounds(245, 430, 104, 50);
 		negButton.setBounds(50, 430, 80, 50);
 		
 		//panel
@@ -114,7 +114,7 @@ public class Calculator implements ActionListener  {
 	
 	public static void main(String[] args) {
 	
-	Calculator calc = new Calculator();
+	Calculator calc = new Calculator(); // call in main
 	
 	
 }

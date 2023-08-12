@@ -12,9 +12,9 @@ public class Calculator implements ActionListener  {
 	JButton[] numberButtons = new JButton[10];
 	
 	// array of function buttons - *, -, Delete etc
-	JButton[] functionButtons = new JButton[8];
+	JButton[] functionButtons = new JButton[9];
 	JButton addButton,subButton, mulButton, divButton;
-	JButton decButton, equButton, delButton, clrButton;
+	JButton decButton, equButton, delButton, clrButton, negButton;
 	JPanel panel;
 	
 	Font myFont = new Font("Ink Free", Font.BOLD, 30);
@@ -45,6 +45,7 @@ public class Calculator implements ActionListener  {
 		equButton = new JButton("=");
 		delButton = new JButton("Delete");
 		clrButton = new JButton("Clear");
+	    negButton = new JButton("(-)");
 		
 		// add buttons to array 
 		functionButtons[0] = addButton;
@@ -55,10 +56,11 @@ public class Calculator implements ActionListener  {
 		functionButtons[5] = equButton;
 		functionButtons[6] = delButton;
 		functionButtons[7] = clrButton;
+		functionButtons[8] = negButton;
 		
 		
 		//loop through buttons to do a few things with function buttons
-		for(int i=0; i<8; i++) {
+		for(int i=0; i<9; i++) {
 			functionButtons[i].addActionListener(this);
 			functionButtons[i].setFont(myFont);
 			functionButtons[i].setFocusable(false); // gets rid of outline around the buttons - esthetic
@@ -73,8 +75,9 @@ public class Calculator implements ActionListener  {
 		}
 		
 		// set bounds of del and clr buttons - x, y, width, height 
-		delButton.setBounds(50, 430, 145, 50);
-		clrButton.setBounds(205, 430, 145, 50);
+		delButton.setBounds(130, 430, 125, 50);
+		clrButton.setBounds(250, 430, 104, 50);
+		negButton.setBounds(50, 430, 80, 50);
 		
 		//panel
 		panel = new JPanel();
@@ -104,6 +107,7 @@ public class Calculator implements ActionListener  {
 		frame.add(panel);
 		frame.add(delButton);
 		frame.add(clrButton);
+		frame.add(negButton);
 		frame.add(textfield); // add textfield to JFrame
 		frame.setVisible(true);
 	}
@@ -199,6 +203,14 @@ public class Calculator implements ActionListener  {
 		        textfield.setText(textfield.getText() + string.charAt(i));
 		    }
 		}
+		
+
+		if(e.getSource() == negButton) {
+		 double temp = Double.parseDouble(textfield.getText()); // take what's in the textfield and assign to temp.
+		 temp *= -1;  // make negative
+		 textfield.setText(String.valueOf(temp)); // assign negative number to textfield.
+		    }
+		
 		
 	}
 }
